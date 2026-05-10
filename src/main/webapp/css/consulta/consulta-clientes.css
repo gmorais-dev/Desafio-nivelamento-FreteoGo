@@ -1,0 +1,33 @@
+/* Estilos da tela de consulta de clientes (segue padrão do form-cliente.css e menu.css) */
+
+.consulta-container { max-width: 1200px; margin: 24px auto; padding: 0 16px; }
+.filtros, .resultado { background: var(--card-bg, #1e1e1e); border-radius: 12px; padding: 18px; margin-bottom: 18px; }
+.filtros-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+.filtros-title { display:flex; gap:12px; align-items:center; color:var(--text-muted,#bdbdbd); }
+.filtros-title .material-symbols-outlined { background:rgba(248,208,48,0.08); padding:8px; border-radius:8px; color:#f8d030; }
+.filtros-sub { font-size:12px; color:var(--text-muted,#9a9a9a); }
+.btn-clear { background:transparent; border:1px solid rgba(255,255,255,0.03); color:var(--text,#ddd); padding:6px 10px; border-radius:8px; }
+.filtros-row { display:flex; gap:12px; align-items:center; }
+.select-field { background:transparent; border:1px solid rgba(255,255,255,0.03); color:var(--text,#ddd); padding:10px 12px; border-radius:12px; min-width:160px; }
+.search-wrap { position:relative; flex:1; }
+.search-input { width:100%; padding:12px 12px 12px 42px; border-radius:12px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); color:var(--text,#ddd); }
+.search-icon { position:absolute; left:12px; top:50%; transform:translateY(-50%); color:rgba(255,255,255,0.4); }
+.btn-primary { background:#f8d030; color:#121212; border:none; padding:10px 16px; border-radius:12px; cursor:pointer; }
+.campo-busca { flex:1; }
+.tabela-clientes { width:100%; border-collapse:collapse; color:var(--text, #ddd); }
+.tabela-clientes th, .tabela-clientes td { padding:12px 10px; border-bottom:1px solid rgba(255,255,255,0.03); text-align:left; }
+.badge-ativo { background:#f8d030; color:#121212; padding:6px 10px; border-radius:12px; font-weight:600; }
+.badge-inativo { background:#3a3a3a; color:#999; padding:6px 10px; border-radius:12px; font-weight:600; }
+.acoes { width:150px; text-align:center; white-space:nowrap; }
+.acoes a,
+.acoes .btn-excluir { color:#6c18d9; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; vertical-align:middle; }
+.acoes a:hover,
+.acoes .btn-excluir:hover { color:#f8d030; }
+.acoes .btn-excluir { background:transparent; border:0; padding:0; cursor:pointer; }
+.acoes .btn-excluir .material-symbols-outlined { font-size:24px; }
+
+/* Responsividade */
+@media (max-width: 800px) {
+    .filtros .row { flex-direction:column; align-items:stretch; }
+    .acoes { width:auto; }
+}
