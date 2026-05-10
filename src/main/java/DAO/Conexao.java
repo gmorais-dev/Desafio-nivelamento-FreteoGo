@@ -7,9 +7,9 @@ import java.sql.SQLException;
 
 public class Conexao {
 
-    private static final String URL    = "jdbc:postgresql://localhost:5432/postgres";
-    private static final String USUARIO = "postgres";
-    private static final String SENHA   = "1234";
+    private static final String URL = obterUrl();
+    private static final String USUARIO = obter("DB_USER", "postgres");
+    private static final String SENHA = obter("DB_PASSWORD", "1234");
 
     static {
         try {
@@ -27,5 +27,28 @@ public class Conexao {
      */
     public static Connection getConexao() throws SQLException {
         return DriverManager.getConnection(URL, USUARIO, SENHA);
+    }
+
+    private static String obterUrl() {
+        String url = obter("DB_URL", "");
+        if (!url.isEmpty()) {
+            return url;
+        }
+        String host = obter("DB_HOST", "localhost");
+        String porta = obter("DB_PORT", "5432");
+        String banco = obter("DB_NAME", "postgres");
+        return "jdbc:postgresql://" + host + ":" + porta + "/" + banco;
+    }
+
+    private static String obter(String chave, String valorPadrao) {
+        String valorSistema = System.getProperty(chave);
+        if (valorSistema != null && !valorSistema.trim().isEmpty()) {
+            return valorSistema.trim();
+        }
+        String valorAmbiente = System.getenv(chave);
+        if (valorAmbiente != null && !valorAmbiente.trim().isEmpty()) {
+            return valorAmbiente.trim();
+        }
+        return valorPadrao;
     }
 }
