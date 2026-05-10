@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <display-name>Sistema Fretes</display-name>
+
+    <!-- ?? Encoding padrão da aplicação ???????????????????????? -->
+    <context-param>
+        <param-name>defaultResponseEncoding</param-name>
+        <param-value>UTF-8</param-value>
+    </context-param>
+
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <!-- forceEncoding garante que sobrescreve mesmo se o cliente definiu outro -->
+            <param-name>ignore</param-name>
+            <param-value>false</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Servlets -->
+    <servlet>
+        <servlet-name>ClienteController</servlet-name>
+        <servlet-class>Controller.ClienteController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClienteController</servlet-name>
+        <url-pattern>/ClienteController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MotoristaController</servlet-name>
+        <servlet-class>Controller.MotoristaController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MotoristaController</servlet-name>
+        <url-pattern>/MotoristaController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>VeiculoController</servlet-name>
+        <servlet-class>Controller.VeiculoController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VeiculoController</servlet-name>
+        <url-pattern>/VeiculoController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FreteController</servlet-name>
+        <servlet-class>Controller.FreteController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FreteController</servlet-name>
+        <url-pattern>/FreteController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MensageriaController</servlet-name>
+        <servlet-class>Controller.MensageriaController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MensageriaController</servlet-name>
+        <url-pattern>/MensageriaController</url-pattern>
+    </servlet-mapping>
+
+</web-app>

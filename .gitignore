@@ -1,0 +1,16 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+# Ignore Node dependencies for embedded dashboard SPA
+node_modules
+frontend/**/node_modules
+
+# Ignore local workspace and generated artifacts
+.codex
+.vscode
+bin
+docs
+/package-lock.json
